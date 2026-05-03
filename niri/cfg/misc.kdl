@@ -23,3 +23,8 @@
     hotkey-overlay {
        skip-at-startup
     }
+    switch-events{
+	lid-close{
+		spawn "sh" "-c" "qs -c noctalia-shell ipc call lockScreen lock && systemctl suspend"
+	}
+    }
