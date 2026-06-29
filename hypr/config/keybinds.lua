@@ -119,3 +119,7 @@ hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special())
 -----------------------
 
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(noctCall .. "notifications toggleHistory"))
+hl.bind("switch:on:Lid Switch", function()
+    hl.exec_cmd("qs -c noctalia-shell ipc call lockScreen lock")
+    hl.exec_cmd("systemctl suspend")
+end, { locked = true })
