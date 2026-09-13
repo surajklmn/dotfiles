@@ -1,0 +1,137 @@
+================================================================================
+                    HYPRLAND + NOCTALIA KEYBINDINGS
+================================================================================
+  SUPER = Windows / Command key
+
+WINDOW MANAGEMENT
+  SUPER + Q / W ............... Close active window
+  CTRL + ALT + Delete ......... Close ALL windows (+ return to workspace 1)
+  SUPER + T ................... Toggle floating / tiled
+  SUPER + F ................... Fullscreen toggle
+  SUPER + ALT + F ............. Maximize full-width toggle
+  SUPER + CTRL + F ............ Tiled fullscreen (fullscreenstate 0 2)
+  SUPER + J ................... Toggle horizontal / vertical split (dwindle)
+  SUPER + P ................... Pseudo-tile window
+  SUPER + O ................... Pop window out (1300x900 floating & pinned)
+  SUPER + L ................... Toggle workspace layout (dwindle / scrolling)
+
+FOCUS & NAVIGATION
+  SUPER + Arrows .............. Focus window in direction
+  SUPER + SHIFT + Arrows ...... Swap window in direction
+  ALT + Tab ................... Cycle to next window (brings to top)
+  ALT + SHIFT + Tab ........... Cycle to previous window
+  CTRL + ALT + Tab ............ Focus next monitor
+  CTRL + ALT + SHIFT + Tab .... Focus previous monitor
+  SUPER + SHIFT + ALT + Arrows  Move workspace to monitor in direction
+
+WINDOW RESIZING
+  SUPER + Minus (-) ........... Shrink / expand window left (-100px)
+  SUPER + Equal (=) ........... Expand / shrink window right (+100px)
+  SUPER + SHIFT + Minus ....... Shrink window vertically (-100px)
+  SUPER + SHIFT + Equal ....... Expand window vertically (+100px)
+  (Add ALT for small 25px steps, CTRL for big 300px steps)
+  SUPER + Left-Click + Drag ... Move window
+  SUPER + Right-Click + Drag .. Resize window
+
+WINDOW GROUPING (TABS)
+  SUPER + G ................... Toggle window grouping
+  SUPER + ALT + G ............. Move active window out of group
+  SUPER + ALT + Arrows ........ Move window into group in direction
+  SUPER + ALT + Tab ........... Next window in group (or SUPER+ALT+Scroll)
+  SUPER + ALT + SHIFT + Tab ... Previous window in group
+  SUPER + CTRL + Left/Right ... Focus previous / next window in group
+  SUPER + ALT + 1..5 .......... Switch directly to tab 1-5 in group
+
+WORKSPACES & SCRATCHPAD
+  SUPER + 1..0 ................ Switch to workspace 1-10
+  SUPER + SHIFT + 1..0 ........ Move window to workspace 1-10 (follow)
+  SUPER + SHIFT + ALT + 1..0 .. Move window to workspace 1-10 (silent / no follow)
+  SUPER + Tab ................. Next workspace
+  SUPER + SHIFT + Tab ......... Previous workspace
+  SUPER + CTRL + Tab .......... Former / previous workspace
+  SUPER + Scroll .............. Scroll through workspaces
+  SUPER + S / SUPER + ` ....... Toggle scratchpad
+  SUPER + ALT + S ............. Move window to scratchpad
+  SUPER + SHIFT + ` ........... Move window to scratchpad
+
+LAUNCHING APPLICATIONS
+  SUPER + Return .............. Terminal (kitty)
+  SUPER + SHIFT + Return ...... Browser (firefox)
+  SUPER + E / SUPER+SHIFT+F ... File manager (dolphin)
+  SUPER + SHIFT + B ........... Browser (firefox)
+  SUPER + SHIFT + ALT + B ..... Browser private window
+  SUPER + SHIFT + N ........... Text editor (gnome-text-editor)
+  SUPER + SHIFT + M ........... Music (YouTube Music)
+  SUPER + SHIFT + Y ........... YouTube
+  SUPER + SHIFT + X ........... X (Twitter)
+  SUPER + CTRL + T ............ Activity monitor (btop)
+  CTRL + SHIFT + Escape ....... Activity monitor (btop)
+  SUPER + CTRL + Q ............ Calculator (gnome-calculator)
+
+UNIVERSAL CLIPBOARD
+  SUPER + C ................... Universal copy (Ctrl+C, or Ctrl+Insert in terminal)
+  SUPER + V ................... Universal paste (Ctrl+V, or Shift+Insert in terminal)
+  SUPER + X ................... Universal cut (Ctrl+X)
+  SUPER + CTRL + V ............ Noctalia clipboard manager
+
+SYSTEM, SHELL & PANELS (SUPER + CTRL)
+  SUPER + Space ............... Launcher (search apps & commands)
+  SUPER + ALT + Space ......... Apps menu launcher
+  SUPER + Escape .............. Session menu (Lock / Logout / Reboot / Poweroff)
+  SUPER + Z ................... Noctalia Settings (also SUPER+CTRL+H)
+  SUPER + SHIFT + Space ....... Toggle top bar visibility
+  SUPER + CTRL + Space ........ Wallpaper / background picker
+  SUPER + CTRL + SHIFT + Space  Theme mode toggle (Dark / Light)
+  SUPER + CTRL + A ............ Audio control center
+  SUPER + CTRL + B ............ Bluetooth control center
+  SUPER + CTRL + W ............ Network / Wi-Fi control center
+  SUPER + CTRL + D ............ Display / monitor settings
+  SUPER + CTRL + P ............ Power / session panel
+  SUPER + CTRL + O ............ Quick settings control center
+  SUPER + CTRL + E ............ Emoji picker
+  SUPER + CTRL + L ............ Lock screen immediately
+
+SCREENSHOTS & RECORDING
+  Print ....................... Fullscreen screenshot
+  ALT + Print ................. Region screenshot
+  SUPER + Print ............... Color picker (hyprpicker)
+  SUPER + CTRL + C ............ Screenshot region
+
+NOTIFICATIONS
+  SUPER + , ................... Dismiss active notification
+  SUPER + SHIFT + , ........... Dismiss all notifications
+  SUPER + CTRL + , ............ Toggle Do Not Disturb (silence notifications)
+  SUPER + ALT + , ............. Invoke default action of latest notification
+
+STYLE & HARDWARE TOGGLES
+  Lid Close ................... Hibernate system
+  SUPER + Backspace ........... Toggle window opacity (85% translucent / 100% solid)
+  SUPER + SHIFT + Backspace ... Toggle window gaps (5/10/2 default vs 0/0/1 gapless)
+  SUPER + CTRL + I ............ Toggle caffeine (idle lock inhibitor)
+  SUPER + CTRL + N ............ Toggle nightlight
+  SUPER + CTRL + Z ............ Zoom in (+1x)
+  SUPER + CTRL + ALT + Z ...... Reset zoom (1x)
+  SUPER + / ................... Monitor scaling up (1.0 -> 1.25 -> 1.6 -> 2.0)
+  SUPER + ALT + / ............. Monitor scaling down
+  SUPER + CTRL + ALT + T ...... Show date & time notification
+  SUPER + CTRL + ALT + B ...... Show battery percentage notification
+  SUPER + K ................... This keybindings cheat sheet
+
+MEDIA & HARDWARE KEYS
+  XF86AudioRaiseVolume ........ Volume up (+5%) (ALT = 1% precise)
+  XF86AudioLowerVolume ........ Volume down (-5%) (ALT = 1% precise)
+  XF86AudioMute ............... Mute / unmute audio
+  XF86AudioMicMute ............ Mute / unmute microphone
+  XF86MonBrightnessUp ......... Brightness up (+5%) (SHIFT = 100%, ALT = 1%)
+  XF86MonBrightnessDown ....... Brightness down (-5%) (SHIFT = 1%, ALT = 1%)
+  XF86KbdBrightnessUp/Down .... Keyboard backlight brightness
+  XF86KbdLightOnOff ........... Keyboard backlight cycle
+  XF86AudioPlay / Pause ....... Media Play / Pause
+  XF86AudioNext / Prev ........ Media Next / Previous track
+
+================================================================================
+BACKUP LOCATION: ~/.config-backup-full-2026-09-12.tar.gz
+To rollback:
+  tar xzf ~/.config-backup-full-2026-09-12.tar.gz -C ~
+  hyprctl reload && pkill -x noctalia && noctalia --daemon
+================================================================================

@@ -1,46 +1,51 @@
--- Look and feel configuration
+-- Window decorations: square geometry, flat unblurred surfaces, 2px gradient borders
 
 hl.config({
     general = {
-        gaps_in = 2,
-        gaps_out = 4,
-        border_size = 3,
-        extend_border_grab_area = 10,
-        resize_on_border = true,
+        gaps_in = 4,
+        gaps_out = 6,
+        border_size = 2,
+        resize_on_border = false,
+        allow_tearing = false,
+        layout = "dwindle",
         col = {
-            active_border = {
-                colors = { CACHYLGREEN, CACHYRED },
-                angle = 45,
-            },
-            inactive_border = CACHYBLACK,
+            active_border = THEME_BORDER_ACTIVE,
+            inactive_border = THEME_BORDER_INACTIVE,
         },
     },
     group = {
         col = {
-            border_active = CACHYLBLUE,
-            border_inactive = CACHYBLACK,
-            border_locked_active = CACHYDBLUE,
-            border_locked_inactive = CACHYGRAY,
+            border_active = THEME_BORDER_ACTIVE,
+            border_inactive = THEME_BORDER_INACTIVE,
         },
         groupbar = {
+            font_size = 12,
+            font_family = "monospace",
+            font_weight_active = "ultraheavy",
+            font_weight_inactive = "normal",
+            indicator_height = 1,
+            indicator_gap = 5,
+            height = 22,
+            gaps_in = 5,
+            gaps_out = 0,
+            text_color = "rgb(ffffff)",
+            text_color_inactive = "rgba(ffffff90)",
             col = {
-                active = CACHYLGREEN,
-                inactive = CACHYGRAY,
-                locked_active = CACHYDBLUE,
-                locked_inactive = CACHYGRAY,
+                active = "rgba(00000040)",
+                inactive = "rgba(00000020)",
             },
+            gradients = true,
+            gradient_rounding = 0,
+            gradient_round_only_edges = false,
         },
     },
     decoration = {
-        dim_special = 0.3,
-        rounding = 10,
-        active_opacity = 0.9,
-        inactive_opacity = 0.85,
-        fullscreen_opacity = 1,
+        rounding = 0,
+        shadow = {
+            enabled = false,
+        },
         blur = {
-            size = 5,
-            passes = 4,
-            special = true,
+            enabled = false,
         },
     },
 })

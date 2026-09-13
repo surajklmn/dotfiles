@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Close all open windows across all workspaces and return to workspace 1
+
+hyprctl clients -j | jq -r '.[].address // empty' | while read -r addr; do
+    if [[ -n "$addr" ]]; then
+        hyprctl dispatch closewindow "address:$addr" >/dev/null 2>&1
+    fi
+done
+
+hyprctl dispatch workspace 1 >/dev/null 2>&1

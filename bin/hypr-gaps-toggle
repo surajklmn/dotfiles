@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Toggle Hyprland window gaps on/off (5/10/2 vs 0/0/1)
+
+state="$HOME/.cache/hypr-gaps-off"
+if [[ -f "$state" ]]; then
+    hyprctl keyword general:gaps_in 5 >/dev/null 2>&1
+    hyprctl keyword general:gaps_out 10 >/dev/null 2>&1
+    hyprctl keyword general:border_size 2 >/dev/null 2>&1
+    rm -f "$state"
+    notify-send "Gaps" "Window gaps enabled (5/10)" >/dev/null 2>&1
+else
+    hyprctl keyword general:gaps_in 0 >/dev/null 2>&1
+    hyprctl keyword general:gaps_out 0 >/dev/null 2>&1
+    hyprctl keyword general:border_size 1 >/dev/null 2>&1
+    touch "$state"
+    notify-send "Gaps" "Window gaps disabled (0/0)" >/dev/null 2>&1
+fi

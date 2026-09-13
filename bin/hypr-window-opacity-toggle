@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Toggle opacity between 1.0 (opaque) and 0.85 (translucent) for the focused window
+
+set -euo pipefail
+
+active=$(hyprctl activewindow -j 2>/dev/null || true)
+addr=$(echo "$active" | jq -r '.address // empty')
+
+[[ -z "$addr" ]] && exit 0
+
+cache_dir="$HOME/.cache/hypr-window-opacity"
+mkdir -p "$cache_dir"
+state_file="$cache_dir/$addr"
+
+if [[ -f "$state_file" ]]; then
+    rm -f "$state_file"
+    hyprctl dispatch "hl.dsp.window.set_prop({ window = \"address:$addr\", prop = \"opacity\", value = 1.0 })" >/dev/null 2>&1
+    notify-send -a "Window Opacity" -i preferences-desktop-theme "Window Opacity" "100% (Opaque)" -h string:x-canonical-private-synchronous:opacity >/dev/null 2>&1 || true
+else
+    touch "$state_file"
+    hyprctl dispatch "hl.dsp.window.set_prop({ window = \"address:$addr\", prop = \"opacity\", value = 0.85 })" >/dev/null 2>&1
+    notify-send -a "Window Opacity" -i preferences-desktop-theme "Window Opacity" "85% (Translucent)" -h string:x-canonical-private-synchronous:opacity >/dev/null 2>&1 || true
+fi

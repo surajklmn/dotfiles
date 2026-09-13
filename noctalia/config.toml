@@ -1,0 +1,155 @@
+[accessibility]
+ui_scale = 1.0
+
+[bar.default]
+center = [ "clock", "keyboard_layout", "weather" ]
+concave_edge_corners = false
+end = [ "tray", "bluetooth", "network", "volume", "brightness", "battery" ]
+margin_edge = 0
+margin_ends = 0
+radius_bottom_left = 0
+radius_bottom_right = 0
+radius_top_left = 0
+radius_top_right = 0
+scale = 1.0
+start = [ "launcher", "workspaces" ]
+thickness = 26
+
+[shell]
+button_borders = true
+card_borders = true
+clipboard_image_action_command = "satty -f -"
+corner_radius_scale = 0.0
+font_family = "monospace"
+input_borders = true
+launch_apps_as_systemd_services = true
+polkit_agent = true
+popup_borders = true
+popup_shadows = false
+settings_show_advanced = true
+
+    [shell.animation]
+    enabled = true
+    speed = 2.5
+
+    [shell.greeter_sync]
+    auto_sync = true
+
+    [shell.panel]
+    borders = true
+    clipboard_placement = "floating"
+    clipboard_position = "center"
+    control_center_placement = "attached"
+    control_center_position = "auto"
+    floating_layer = "overlay"
+    floating_offset = 5
+    launcher_placement = "floating"
+    launcher_position = "center"
+    open_near_click_control_center = true
+    polkit_placement = "floating"
+    polkit_position = "center"
+    session_placement = "floating"
+    session_position = "center"
+    shadow = false
+    transparency_mode = "solid"
+
+    [shell.screenshot]
+    copy_to_clipboard = false
+    pipe_command = "satty -f -"
+    pipe_to_command = true
+    save_to_file = false
+
+    [[shell.session.actions]]
+    action = "lock"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "1"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "logout"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "2"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "lock_and_suspend"
+    countdown_seconds = 3.0
+    enabled = true
+    shortcut = "3"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "reboot"
+    countdown_seconds = 3.0
+    enabled = true
+    shortcut = "4"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "shutdown"
+    countdown_seconds = 3.0
+    enabled = true
+    shortcut = "5"
+    variant = "destructive"
+
+[system.monitor]
+gpu_poll_seconds = 2
+
+[theme]
+builtin = "Tokyo-Night"
+mode = "dark"
+source = "builtin"
+wallpaper_scheme = "m3-tonal-spot"
+
+    [theme.templates]
+    builtin_ids = [ "gtk3", "gtk4", "kcolorscheme", "qt" ]
+
+[widget.battery]
+color = "secondary"
+
+[widget.bluetooth]
+color = "secondary"
+
+[widget.brightness]
+color = "secondary"
+
+[widget.clock]
+color = "secondary"
+format = "{:%A %H:%M}"
+
+[widget.keyboard_layout]
+color = "secondary"
+
+[widget.launcher]
+color = "secondary"
+custom_image = "/usr/share/pixmaps/archlinux-logo.svg"
+custom_image_colorize = true
+glyph = ""
+
+[widget.network]
+color = "secondary"
+
+[widget.tray]
+capsule = false
+
+[widget.volume]
+color = "secondary"
+
+[widget.weather]
+show_condition = false
+show_temperature = true
+
+[widget.workspaces]
+active_pill_size = 1.0
+capsule = false
+capsule_radius = 0
+change_color_on_hover = true
+empty_color = "#565f89"
+focused_color = "#7aa2f7"
+inactive_pill_size = 1.0
+occupied_color = "#c0caf5"
+pill_scale = 1.0
+show_labels = true
+style = "minimal"

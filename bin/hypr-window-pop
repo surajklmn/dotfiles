@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Pop-out window toggle: float, exact 1300x900, center, pin to top.
+# If already pinned, unpin and return to tiled layout.
+
+width=${1:-1300}
+height=${2:-900}
+
+active=$(hyprctl activewindow -j)
+pinned=$(echo "$active" | jq -r '.pinned // false')
+addr=$(echo "$active" | jq -r '.address // empty')
+
+if [[ -z "$addr" ]]; then
+    exit 0
+fi
+
+window="address:$addr"
+
+if [[ "$pinned" == "true" ]]; then
+    hyprctl --batch "dispatch pin $window; dispatch togglefloating $window; dispatch tagwindow -pop $window" >/dev/null 2>&1
+else
+    hyprctl --batch "dispatch togglefloating $window; dispatch resizeactive exact $width $height; dispatch centerwindow; dispatch pin $window; dispatch alterzorder top; dispatch tagwindow +pop $window" >/dev/null 2>&1
+fi

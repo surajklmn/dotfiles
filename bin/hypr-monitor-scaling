@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Step monitor scaling presets (1, 1.25, 1.6, 2, 3, 4) on focused monitor
+
+dir="${1:-up}"
+
+m=$(hyprctl monitors -j | jq -c '.[] | select(.focused==true)')
+if [[ -z "$m" ]]; then
+    exit 0
+fi
+
+n=$(echo "$m" | jq -r '.name')
+s=$(echo "$m" | jq -r '.scale')
+w=$(echo "$m" | jq -r '.width')
+h=$(echo "$m" | jq -r '.height')
+r=$(echo "$m" | jq -r '.refreshRate')
+
+if [[ "$dir" == "up" ]]; then
+    ns=$(echo "$s" | awk '{p[1]=1;p[2]=1.25;p[3]=1.6;p[4]=2;p[5]=3;p[6]=4; for(i=1;i<=6;i++){d=p[i]-$1; if(d<0)d=-d; if(NR==1||d<bd){bd=d;b=i}}; print p[(b<6)?b+1:6]}')
+else
+    ns=$(echo "$s" | awk '{p[1]=1;p[2]=1.25;p[3]=1.6;p[4]=2;p[5]=3;p[6]=4; for(i=1;i<=6;i++){d=p[i]-$1; if(d<0)d=-d; if(NR==1||d<bd){bd=d;b=i}}; print p[(b>1)?b-1:1]}')
+fi
+
+hyprctl keyword monitor "$n,${w}x${h}@${r},auto,$ns" >/dev/null 2>&1
+notify-send "Monitor Scale" "$n scale set to ${ns}x" >/dev/null 2>&1
