@@ -1,42 +1,16 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    branch = "master",
+    lazy = false,
     build = ":TSUpdate",
-    event = { "BufReadPost", "BufNewFile" },
-    opts = {
-        ensure_installed = {
-            "bash",
-            "c",
-            "cpp",
-            "diff",
-            "html",
-            "javascript",
-            "json",
-            "lua",
-            "luadoc",
-            "markdown",
-            "markdown_inline",
-            "python",
-            "query",
-            "regex",
-            "rust",
-            "toml",
-            "tsx",
-            "typescript",
-            "vim",
-            "vimdoc",
-            "yaml",
-        },
-        auto_install = true,
-        highlight = {
-            enable = true,
-            additional_vim_regex_highlighting = false,
-        },
-        indent = {
-            enable = true,
-        },
-    },
-    config = function(_, opts)
-        require("nvim-treesitter.configs").setup(opts)
+    config = function()
+        require("nvim-treesitter").setup()
+
+        -- Enable treesitter syntax highlighting for all filetypes supported by Neovim 0.12
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = "*",
+            callback = function()
+                pcall(vim.treesitter.start)
+            end,
+        })
     end,
 }

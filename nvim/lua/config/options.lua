@@ -33,7 +33,7 @@ opt.undodir = vim.fn.stdpath("state") .. "/undo"
 
 -- Behavior & Performance
 opt.updatetime = 50
-opt.timeoutlen = 300
+opt.timeoutlen = 500 -- Milliseconds to wait for a mapped sequence (relaxed leader key)
 opt.completeopt = "menuone,noselect"
 opt.mouse = "a"
 opt.clipboard = "unnamedplus"
