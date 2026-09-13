@@ -4,6 +4,7 @@
 local mainMod = "SUPER"
 local noctCall = "noctalia msg "
 local launchPrefix = "uwsm app -- " -- UWSM application wrapper
+local scriptDir = "~/.config/hypr/scripts/"
 
 ----------------------------------------------------
 ---- UNIVERSAL CLIPBOARD ---------------------------
@@ -47,7 +48,7 @@ hl.bind(mainMod .. " + CONTROL + V", hl.dsp.exec_cmd(noctCall .. "panel-toggle c
 -- Close window
 hl.bind(mainMod .. " + W", hl.dsp.window.close(), { description = "Close window" })
 hl.bind(mainMod .. " + Q", hl.dsp.window.close(), { description = "Close window" })
-hl.bind("CONTROL + ALT + Delete", hl.dsp.exec_cmd("~/.local/bin/hypr-window-close-all"), { description = "Close all windows" })
+hl.bind("CONTROL + ALT + Delete", hl.dsp.exec_cmd(scriptDir .. "hypr-window-close-all"), { description = "Close all windows" })
 
 -- Float / pseudo / fullscreen / pop / layout
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"), { description = "Toggle window split" })
@@ -56,8 +57,8 @@ hl.bind(mainMod .. " + T", hl.dsp.window.float({ action = "toggle" }), { descrip
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }), { description = "Full screen" })
 hl.bind(mainMod .. " + CONTROL + F", hl.dsp.exec_cmd("if [ \"$(hyprctl activewindow -j | jq -r '.fullscreenClient // 0')\" = \"2\" ]; then hyprctl dispatch fullscreenstate 0 0; else hyprctl dispatch fullscreenstate 0 2; fi"), { description = "Tiled full screen" })
 hl.bind(mainMod .. " + ALT + F", hl.dsp.window.fullscreen({ mode = "maximized" }), { description = "Full width" })
-hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("~/.local/bin/hypr-window-pop"), { description = "Pop window out (float & pin toggle)" })
-hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("~/.local/bin/hypr-workspace-layout-toggle"), { description = "Toggle workspace layout" })
+hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(scriptDir .. "hypr-window-pop"), { description = "Pop window out (float & pin toggle)" })
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(scriptDir .. "hypr-workspace-layout-toggle"), { description = "Toggle workspace layout" })
 
 -- Change focus
 hl.bind(mainMod .. " + Left", hl.dsp.focus({ direction = "l" }), { description = "Focus on left window" })
@@ -127,8 +128,8 @@ for index = 1, 5 do
 end
 
 -- Monitor scaling presets (1 / 1.25 / 1.6 / 2 / 3 / 4)
-hl.bind(mainMod .. " + SLASH", hl.dsp.exec_cmd("~/.local/bin/hypr-monitor-scaling up"), { description = "Monitor scaling up" })
-hl.bind(mainMod .. " + ALT + SLASH", hl.dsp.exec_cmd("~/.local/bin/hypr-monitor-scaling down"), { description = "Monitor scaling down" })
+hl.bind(mainMod .. " + SLASH", hl.dsp.exec_cmd(scriptDir .. "hypr-monitor-scaling up"), { description = "Monitor scaling up" })
+hl.bind(mainMod .. " + ALT + SLASH", hl.dsp.exec_cmd(scriptDir .. "hypr-monitor-scaling down"), { description = "Monitor scaling down" })
 
 -- Zoom
 local function zoomfunction(value)
@@ -168,8 +169,8 @@ hl.bind(mainMod .. " + K", hl.dsp.exec_cmd(TERMINAL .. " -e less ~/.config/hypr/
 hl.bind(mainMod .. " + SHIFT + Space", hl.dsp.exec_cmd(noctCall .. "bar-toggle"), { description = "Toggle top bar" })
 hl.bind(mainMod .. " + CONTROL + Space", hl.dsp.exec_cmd(noctCall .. "panel-toggle wallpaper"), { description = "Background switcher" })
 hl.bind(mainMod .. " + CONTROL + SHIFT + Space", hl.dsp.exec_cmd(noctCall .. "theme-mode-toggle"), { description = "Theme toggle (dark/light)" })
-hl.bind(mainMod .. " + BackSpace", hl.dsp.exec_cmd("~/.local/bin/hypr-window-opacity-toggle"), { description = "Toggle window opacity" })
-hl.bind(mainMod .. " + SHIFT + BackSpace", hl.dsp.exec_cmd("~/.local/bin/hypr-gaps-toggle"), { description = "Toggle window gaps" })
+hl.bind(mainMod .. " + BackSpace", hl.dsp.exec_cmd(scriptDir .. "hypr-window-opacity-toggle"), { description = "Toggle window opacity" })
+hl.bind(mainMod .. " + SHIFT + BackSpace", hl.dsp.exec_cmd(scriptDir .. "hypr-gaps-toggle"), { description = "Toggle window gaps" })
 
 -- Notifications
 hl.bind(mainMod .. " + comma", hl.dsp.exec_cmd(noctCall .. "notification-clear-active"), { description = "Dismiss last notification" })
