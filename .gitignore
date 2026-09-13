@@ -1,0 +1,4 @@
+# Noctalia runtime & cache files
+noctalia/*.log
+noctalia/*.json
+noctalia/thumbnails/

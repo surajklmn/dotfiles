@@ -1,8 +1,8 @@
 [accessibility]
-ui_scale = 1.0
+ui_scale = 1
 
 [bar.default]
-center = [ "clock", "keyboard_layout", "weather" ]
+center = [ "clock", "audio_visualizer", "weather","notifications" ]
 concave_edge_corners = false
 end = [ "tray", "bluetooth", "network", "volume", "brightness", "battery" ]
 margin_edge = 0
@@ -13,14 +13,16 @@ radius_top_left = 0
 radius_top_right = 0
 scale = 1.0
 start = [ "launcher", "workspaces" ]
-thickness = 26
-
+thickness = 25
+capsule = false
+capsule_thickness = 1
+font_scale = 1
 [shell]
 button_borders = true
 card_borders = true
 clipboard_image_action_command = "satty -f -"
 corner_radius_scale = 0.0
-font_family = "monospace"
+font_family = "CaskaydiaMono Nerd Font"
 input_borders = true
 launch_apps_as_systemd_services = true
 polkit_agent = true
@@ -108,19 +110,32 @@ wallpaper_scheme = "m3-tonal-spot"
 
 [widget.battery]
 color = "secondary"
+display_mode = "graphic"
+show_label=false
+scale = 0.76
+capsule = true
 
 [widget.bluetooth]
+scale = 1
 color = "secondary"
+capsule = true
 
 [widget.brightness]
 color = "secondary"
+scale = 1
+capsule = true
 
 [widget.clock]
 color = "secondary"
 format = "{:%A %H:%M}"
 
-[widget.keyboard_layout]
+[widget.media]
 color = "secondary"
+capsule = true
+
+[widget.notifications]
+color = "secondary"
+capsule = true
 
 [widget.launcher]
 color = "secondary"
@@ -130,12 +145,15 @@ glyph = ""
 
 [widget.network]
 color = "secondary"
+show_label = false
+capsule = true
 
 [widget.tray]
 capsule = false
 
 [widget.volume]
 color = "secondary"
+capsule = true
 
 [widget.weather]
 show_condition = false
